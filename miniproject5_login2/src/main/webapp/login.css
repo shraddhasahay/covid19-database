@@ -77,14 +77,14 @@ button:hover{
 }
 .login label{
 	color: #573b8a;
-	transform: scale(.6);
+	transform: scale(.5);
 }
 
 #chk:checked ~ .login{
 	transform: translateY(-500px);
 }
 #chk:checked ~ .login label{
-	transform: scale(2);	
+	transform: scale(1);	
 }
 #chk:checked ~ .signup label{
 	transform: scale(.5);

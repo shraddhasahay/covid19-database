@@ -12,9 +12,11 @@
 <title>Covid Database</title>
 </head>
 <body>
-	<div class="main">  	
+<label for="chk" aria-hidden="true">COVID-19 DATABASE</label>
+	<div class="main"> 
+	 	
 		<input type="checkbox" id="chk" aria-hidden="true">
-
+		
 			<div class="signup">
 				<form action="SignupServlet" method="post">
 					<label for="chk" aria-hidden="true">Sign up</label>

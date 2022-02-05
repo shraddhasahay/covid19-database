@@ -7,20 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import next.xadmin.login.bean.Patient;
+import next.xadmin.login.bean.*;
 import next.xadmin.login.database.LoginDao;
 
 /**
- * Servlet implementation class SignupServlet
+ * Servlet implementation class treatment
  */
-@WebServlet("/SignupServlet")
-public class SignupServlet extends HttpServlet {
+@WebServlet("/treatment")
+public class treatment extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SignupServlet() {
+    public treatment() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,22 +39,26 @@ public class SignupServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		String username=request.getParameter("USER_ID");
-		String password=request.getParameter("PSWD");
+		String username=request.getParameter("Pid");
+		String type=request.getParameter("Type");
 		String citycode=request.getParameter("CityCode");
-		String age=request.getParameter("Age");
-		String name=request.getParameter("Name");
+		String effect=request.getParameter("effect");
+		String infected=request.getParameter("Infected");
+		String recovered=request.getParameter("Recovered");
 		
 		
-		Patient p=new Patient();
-		p.setPassword(password);
-		p.setUsername(username);
-		p.setAge(age);
-		p.setCityCode(citycode);
-		p.setName(name);
+		
+		Treatment t=new Treatment();
+		t.setCityCode(citycode);
+		t.setInfected(infected);
+		t.setPid(username);
+		t.setTreatmentType(type);
+		t.setRecovered(recovered);
+		t.setPost_effects(effect);
 		
 		LoginDao ld=new LoginDao();
-		ld.insert_patient(p);
+		ld.set_treatment(t);
+		
 		response.sendRedirect("LoginSuccess.jsp");
 	}
 

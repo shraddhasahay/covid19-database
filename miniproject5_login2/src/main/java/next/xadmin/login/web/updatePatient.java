@@ -6,21 +6,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import next.xadmin.login.bean.Patient;
+import next.xadmin.login.bean.*;
 import next.xadmin.login.database.LoginDao;
-
 /**
- * Servlet implementation class SignupServlet
+ * Servlet implementation class updatePatient
  */
-@WebServlet("/SignupServlet")
-public class SignupServlet extends HttpServlet {
+@WebServlet("/updatePatient")
+public class updatePatient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SignupServlet() {
+    public updatePatient() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,6 +44,7 @@ public class SignupServlet extends HttpServlet {
 		String name=request.getParameter("Name");
 		
 		
+		
 		Patient p=new Patient();
 		p.setPassword(password);
 		p.setUsername(username);
@@ -54,7 +53,7 @@ public class SignupServlet extends HttpServlet {
 		p.setName(name);
 		
 		LoginDao ld=new LoginDao();
-		ld.insert_patient(p);
+		ld.update_patient(p);
 		response.sendRedirect("LoginSuccess.jsp");
 	}
 
